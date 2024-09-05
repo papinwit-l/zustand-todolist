@@ -57,8 +57,9 @@ const store = (set) => ({
 const usePersist = {
   name: "myStore",
   storage: createJSONStorage(() => localStorage),
+  partialize: (state) => ({ todo: state.todo }),
 };
 // const useStore = create(store);
 const useStore = create(persist(store, usePersist));
-
+console.log(usePersist);
 export default useStore;
